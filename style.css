@@ -11,7 +11,21 @@
 	background-attachment: fixed;
 	margin-left: -15px;
     }
- 
+    #mydiv {
+        position: absolute;
+        z-index: 9;
+        background-color: #f1f1f1;
+        border: 1px solid #d3d3d3;
+        text-align: center;
+      }
+      
+      #mydivheader {
+        padding: 10px;
+        cursor: move;
+        z-index: 10;
+        background-color: #2196F3;
+        color: #fff;
+      }
   #container{
 	max-width: 45%;
 	max-height: 40%;
@@ -57,7 +71,7 @@
   
   /* When clicked on, add a background color and strike out text */
   ul li.checked {
-    background: #888;
+    background: rgb(81, 245, 116);
     color: #fff;
     text-decoration: line-through;
   }

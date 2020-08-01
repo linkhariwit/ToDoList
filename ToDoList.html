@@ -3,16 +3,23 @@
 <head>
   
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  
   <title>my to do list</title>
 </head>
 
-<body>
-
+<body id="image-head">
+  <!-- Draggable DIV -->
+<div id="mydiv">
+  <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+  <div id="mydivheader">Click here to move</div>
+  <p>Move</p>
+  <p>this</p>
+  <p>DIV</p>
+</div>
   <div id="container">
     <div id="myDIV" class="header">
     <h2>My To Do List</h2>
-    <input type="text" id="myInput" placeholder="Title..." onkeypress="handle(event)">
+    <input type="text" id="myInput" placeholder="Enter your task here..." onkeypress="handle(event)">
     <span onclick="newElement()"  class="addBtn">Add</span>
     </div>
 
@@ -27,6 +34,6 @@
     </ul>
   </div>
   <div id="container2">
-
+  <script src="script.js"></script>
   </div>
 </body>
