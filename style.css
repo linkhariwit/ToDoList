@@ -2,6 +2,10 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     
   }
   html {
@@ -17,19 +21,21 @@
 	background-repeat: no-repeat;
 	background-attachment: fixed;
   margin-left: -15px;
+  
   }
     
   #container{
 	max-width: 45%;
 	max-height: 40%;
-	margin: 10% auto;
+	margin: 5% auto ;
 	background-color: #f7f7f7;
 	border-radius: 20px ;
 	box-shadow: 3px 6px 8px rgba(76, 75, 75, 0.644);
-	overflow: hidden;
+  overflow: hidden;
+  
     }
-   
-  /* Remove margins and padding from the list */
+  
+  
   p{
     margin: auto;
     text-align: center;
@@ -61,13 +67,7 @@
     
     /*transition: 0.2s;*/
     
-    
-  
-    /* make the list items unselectable */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+   
   }
   
   /* Set all odd list items to a different color (zebra-stripes) */
