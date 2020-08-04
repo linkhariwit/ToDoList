@@ -70,9 +70,14 @@ function newElement() {
 }
 //delall btn
 function del(){
+  if(window.confirm("Are you sure to delete all Task?")){
   localStorage["toDoItems"]="";   
   ul.innerHTML = localStorage["toDoItems"];
-  document.getElementById("delBtn").style.display="none";   
+  document.getElementById("delBtn").style.display="none"; 
+  }else{
+    return;
+  }
+    
 }
 
 //enter btn
