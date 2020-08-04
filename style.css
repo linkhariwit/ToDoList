@@ -24,12 +24,25 @@
 	max-height: 40%;
 	margin: 10% auto;
 	background-color: #f7f7f7;
-	border-radius: 20px;
+	border-radius: 20px ;
 	box-shadow: 3px 6px 8px rgba(76, 75, 75, 0.644);
 	overflow: hidden;
     }
    
   /* Remove margins and padding from the list */
+  p{
+    margin: auto;
+    text-align: center;
+    color: #f44336;
+    background-color: #ffffff;
+    font-size: 20px;
+    border-color: rgb(80, 241, 115);
+    border-style: solid;
+    border-radius: 0px 0px 20px 20px;
+    
+	
+
+  }
   ul {
     margin: 0;
     padding: 0;
@@ -168,6 +181,7 @@
   }
   #delBtn {
     margin-left: 35%;
+    
     padding: 10px;
     width: 30%;
     background: #d9d9d9;

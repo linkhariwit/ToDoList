@@ -1,44 +1,38 @@
-// Create a "close" button and append it to each list item
-var save=[]
-if(localStorage.getItem('myCat')!=""){
-  var cat = localStorage.getItem('myCat').split(",");
-  for(i=0;i<cat.length;i++){
-    var li = document.createElement("li");
-  
-    var inputValue = cat[i];
-    var t = document.createTextNode(inputValue);
-    li.appendChild(t);
-    save.push(inputValue)
-    document.getElementById("myUL").appendChild(li);
-  }
-  document.getElementById("delBtn").style.display="inline";
-}
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
+
+
+let ul = document.getElementById('myUL');
+
+//load list
+if (localStorage["toDoItems"]) {
+  ul.innerHTML = localStorage["toDoItems"];
+  document.getElementById("delBtn").style.display="inline";  
 }
 
-// Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-var i;
-
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
+function updateClock() {
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();  
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  document.getElementById("date").innerHTML=date+" "+time;
+  setTimeout(updateClock, 1000);
 }
+updateClock();
 
-// Add a "checked" symbol when clicking on a list item
+
 var list = document.querySelector('ul');
+// del list while click close button
+list.addEventListener('click', function(ev) {
+  if (ev.target.className == 'close') {
+    ev.target.parentElement.remove();
+    localStorage["toDoItems"] = ul.innerHTML;
+    if(!localStorage["toDoItems"])document.getElementById("delBtn").style.display="none";
+  }
+}, false);
+// Add a "checked" symbol when clicking on a list item
+
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
+    localStorage["toDoItems"] = ul.innerHTML;
   }
 }, false);
 
@@ -54,29 +48,23 @@ function newElement() {
     document.getElementById("myUL").appendChild(li);
   }
   document.getElementById("myInput").value = "";
-
+  // Create a "close" button and append it to each list item
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
   span.className = "close";
   span.appendChild(txt);
   li.appendChild(span);
-  save.push(inputValue);
-  localStorage.setItem('myCat', save);
-  document.getElementById("delBtn").style.display="inline";
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
+ 
+  localStorage["toDoItems"] = ul.innerHTML
+  document.getElementById("delBtn").style.display="inline";  
+  
 }
 //delallbtn
 function del(){
-  localStorage.removeItem('myCat');
-  location.reload();
- 
-
-
+  localStorage["toDoItems"]="";   
+  ul.innerHTML = localStorage["toDoItems"];
+  document.getElementById("delBtn").style.display="none";  
+    
 }
 //enterbtn
 function handle(e){

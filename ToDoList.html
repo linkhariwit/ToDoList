@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <!-- Draggable DIV -->
+ 
 
   <div id="container">
     <div id="myDIV" class="header">
@@ -16,11 +16,13 @@
     <input type="text" id="myInput" placeholder="Enter your task here..." onkeypress="handle(event)">
     <span onclick="newElement()"  class="addBtn">Add</span>
     </div>
-
-   <ul id="myUL">
+    <div>
+      <p id="date"></p>
+      <ul id="myUL">
       
     
-    </ul>
+      </ul>
+    </div>
     <span onclick="del()" id="delBtn">delete all</span>
   </div>
   
