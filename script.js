@@ -29,19 +29,19 @@ function updateClock() {
   
 }
 updateClock();
-function random_bg_color() {
-    var bg=document.getElementById("myDIV").style;
-    var x = Math.floor(Math.random() * 256);
-    var y = Math.floor(Math.random() * 256);
-    var z = Math.floor(Math.random() * 256);
-    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
-    //document.getElementById("topic").style.color=bgColor;
-    bg.opacity=0.7;
-    bg.background=bgColor;
-    setTimeout(random_bg_color, 500);
-}
+// function random_bg_color() {
+//     var bg=document.getElementById("myDIV").style;
+//     var x = Math.floor(Math.random() * 256);
+//     var y = Math.floor(Math.random() * 256);
+//     var z = Math.floor(Math.random() * 256);
+//     var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+//     //document.getElementById("topic").style.color=bgColor;
+//     bg.opacity=0.7;
+//     bg.background=bgColor;
+//     setTimeout(random_bg_color, 500);
+// }
 
-random_bg_color();
+// random_bg_color();
 var list = document.querySelector('ul');
 // del list while click close button
 list.addEventListener('click', function(ev) {
@@ -74,6 +74,7 @@ function newElement() {
   li.appendChild(t);
   if (inputValue === '') {
     alert("You must write something!");
+    return;
   } else {
     document.getElementById("myUL").appendChild(li);
   }
