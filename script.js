@@ -1,9 +1,5 @@
-
 let ul = document.getElementById('myUL');
-
 var count=document.getElementsByTagName("li");
-
-
 
 //load list
 if (localStorage["toDoItems"]) {
@@ -13,11 +9,8 @@ if (localStorage["toDoItems"]) {
   }else{
   document.getElementById("delBtn").style.display="inline";  
   }
-
-  
-  
 }
-
+//clock
 function updateClock() {
   var today = new Date();
   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();  
@@ -25,23 +18,9 @@ function updateClock() {
   document.getElementById("date").innerHTML=date+" "+time;
  
   setTimeout(updateClock, 1000);
-  
-  
 }
 updateClock();
-// function random_bg_color() {
-//     var bg=document.getElementById("myDIV").style;
-//     var x = Math.floor(Math.random() * 256);
-//     var y = Math.floor(Math.random() * 256);
-//     var z = Math.floor(Math.random() * 256);
-//     var bgColor = "rgb(" + x + "," + y + "," + z + ")";
-//     //document.getElementById("topic").style.color=bgColor;
-//     bg.opacity=0.7;
-//     bg.background=bgColor;
-//     setTimeout(random_bg_color, 500);
-// }
 
-// random_bg_color();
 var list = document.querySelector('ul');
 // del list while click close button
 list.addEventListener('click', function(ev) {
@@ -52,15 +31,13 @@ list.addEventListener('click', function(ev) {
 
   }
 }, false);
+
 // Add a "checked" symbol when clicking on a list item
 
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
     localStorage["toDoItems"] = ul.innerHTML;
-  
-   
-    
   }
 }, false);
 
@@ -79,6 +56,7 @@ function newElement() {
     document.getElementById("myUL").appendChild(li);
   }
   document.getElementById("myInput").value = "";
+
   // Create a "close" button and append it to each list item
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
@@ -90,20 +68,18 @@ function newElement() {
   document.getElementById("delBtn").style.display="inline";  
   
 }
-//delallbtn
+//delall btn
 function del(){
   localStorage["toDoItems"]="";   
   ul.innerHTML = localStorage["toDoItems"];
-  document.getElementById("delBtn").style.display="none";  
-  
-    
+  document.getElementById("delBtn").style.display="none";   
 }
-//enterbtn
+
+//enter btn
 function handle(e){
     if(e.keyCode === 13){
         e.preventDefault(); 
         newElement();
-
     }
 }
 
